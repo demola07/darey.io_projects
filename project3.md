@@ -1,4 +1,4 @@
-# PROJECT 2: MERN STACK IMPLEMENTATION
+# PROJECT 3: MERN STACK IMPLEMENTATION
 
 ![todo app](./project3_screenshots//express_app.JPG)
 
