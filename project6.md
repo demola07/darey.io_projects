@@ -1,4 +1,4 @@
-# **PROJECT 6: Web Solution with Wordpres**
+# **PROJECT 6: Web Solution with Wordpress**
 
 ### Project 6 consists of two parts:
 
