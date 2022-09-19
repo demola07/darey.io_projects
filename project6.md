@@ -14,21 +14,21 @@
 
     1. Launch an EC2 instance that will serve as "Web Server". Create 3 volumes in the same AZ as your Web Server EC2, each of 10 GiB.
 
-       ![ebs_volumes](./project6_screenshots//create_ebs_volume.JPG)
+       ![ebs_volumes](./project6_images//create_ebs_volume.JPG)
 
     2. Attach all three volumes one by one to your Web Server EC2 instance
 
-       ![attach_ebs_volumes](./project6_screenshots//attac_vol1.JPG)
+       ![attach_ebs_volumes](./project6_images//attac_vol1.JPG)
 
-       ![attach_ebs_volumes](./project6_screenshots//attac_vol2.JPG)
+       ![attach_ebs_volumes](./project6_images//attac_vol2.JPG)
 
     3. Open up the Linux terminal to begin configuration
 
     4. Use `lsblk` command to inspect what block devices are attached to the server. Notice names of your newly created devices. All devices in Linux reside in /dev/ directory. Inspect it with ls /dev/ and make sure you see all 3 newly created block devices there – their names will likely be xvdf, xvdh, xvdg
-       ![list_ebs_volumes](./project6_screenshots//list_volumes.JPG)
+       ![list_ebs_volumes](./project6_images//list_volumes.JPG)
 
     5. Use `df -h` command to see all mounts and free space on your server
-       ![mount_points](./project6_screenshots//mount_points.JPG)
+       ![mount_points](./project6_images//mount_points.JPG)
 
     6. Use `gdisk` utility to create a single partition on each of the 3 disks
 
@@ -144,19 +144,19 @@
 
        Verify that your Physical volume has been created successfully by running `sudo pvs`
 
-       ![pvcreate](./project6_screenshots//pvcreate.JPG)
+       ![pvcreate](./project6_images//pvcreate.JPG)
 
-       ![pvs](./project6_screenshots//pvcreate.JPG)
+       ![pvs](./project6_images//pvcreate.JPG)
 
     10. Use `vgcreate` utility to add all 3 PVs to a volume group (VG). Named _webdata-vg_
 
         Verify that your VG has been created successfully by running `sudo vgs` or `sudo vgdisplay`
 
-        ![volume_group](./project6_screenshots//volume_group.JPG)
+        ![volume_group](./project6_images//volume_group.JPG)
 
     11. Use `lvcreate` utility to create 2 logical volumes. `apps-lv` (Use half of the PV size), and `logs-lv` Use the remaining space of the VG size. NOTE: `apps-lv` will be used to store data for the Website while, `logs-lv` will be used to store data for logs.
 
-        ![lv_create](./project6_screenshots//lvcreate.JPG)
+        ![lv_create](./project6_images//lvcreate.JPG)
 
     _Use the following commands to view the complete setup of the Physical volumes, volume group and logical volumes_
 
@@ -165,7 +165,7 @@
 
     12. Use `mkfs.ext4` to format the logical volumes with **ext4** filesystem
 
-        ![format_lv](./project6_screenshots//format_lv.JPG)
+        ![format_lv](./project6_images//format_lv.JPG)
 
     13. Create /var/www/html directory to store website files
 
@@ -177,20 +177,20 @@
 
     15. Mount the **apps-lv** logical volume in the **/var/www/html** directory
 
-        ![mount_appslv](./project6_screenshots//mount_applv.JPG)
+        ![mount_appslv](./project6_images//mount_applv.JPG)
 
     16. Use `rsync` utility to backup all the files in the log directory `/var/log` into `/home/recovery/logs` (This is required before mounting the file system)
 
-        ![rsync](./project6_screenshots//rsync.JPG)
+        ![rsync](./project6_images//rsync.JPG)
 
     17. Mount `/var/log` on `logs-lv` logical volume. (Note that all the existing data on `/var/log` will be deleted. That is why step 16 above is very
         important)
 
-        ![mount_logs_lv](./project6_screenshots//mount_logslv.JPG)
+        ![mount_logs_lv](./project6_images//mount_logslv.JPG)
 
     18. Restore log files back into `/var/log` directory
 
-        ![rsync2](./project6_screenshots//rsync2.JPG)
+        ![rsync2](./project6_images//rsync2.JPG)
 
     19. Update `/etc/fstab` file so that the mount configuration will persist after restart of the server.
 
@@ -199,11 +199,11 @@
             - sudo mount -a
             - sudo systemctl daemon-reload
 
-        ![fstab](./project6_screenshots//fstab.JPG)
+        ![fstab](./project6_images//fstab.JPG)
 
     20. Verify your setup by running `df -h`
 
-        ![verify_setup](./project6_screenshots//verify_setup.JPG)
+        ![verify_setup](./project6_images//verify_setup.JPG)
 
 2.  **Prepare the Database Server**
 
@@ -251,7 +251,7 @@
             sudo cp wordpress/wp-config-sample.php wordpress/wp-config.php
             sudo cp -R wordpress /var/www/html/
 
-        ![wordpress](./project6_screenshots//wordpress.JPG)
+        ![wordpress](./project6_images//wordpress.JPG)
 
     7.  Configure SELinux Policies
 
@@ -259,7 +259,7 @@
             sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R
             sudo setsebool -P httpd_can_network_connect=1
 
-        ![set_permissions](./project6_screenshots//set_permissions.JPG)
+        ![set_permissions](./project6_images//set_permissions.JPG)
 
 4.  **Install MySQL on your DB Server EC2**
 
@@ -272,7 +272,7 @@
           sudo systemctl restart mysqld
           sudo systemctl enable mysqld
 
-    ![mysql_install](./project6_screenshots//mysql_install.JPG)
+    ![mysql_install](./project6_images//mysql_install.JPG)
 
 5.  **Configure DB to work with WordPress**
 
@@ -284,13 +284,13 @@
         SHOW DATABASES;
         exit
 
-    ![mysql_install](./project6_screenshots//create_database.JPG)
+    ![mysql_install](./project6_images//create_database.JPG)
 
 6.  **Configure WordPress to connect to remote database.**
 
     _NB: Do not forget to open MySQL port 3306 on DB Server EC2. For extra security, you shall allow access to the DB server ONLY from your Web Server’s IP address, so in the Inbound Rule configuration specify source as /32_
 
-    ![security_group](./project6_screenshots//security_group.JPG)
+    ![security_group](./project6_images//security_group.JPG)
 
     1. Install MySQL client and test that you can connect from your Web Server to your DB server by using `mysql-client`
 
@@ -308,10 +308,10 @@
 
     _NB: Edit the `wp-config.php` file in the `/var/www/html/wordpress` directory and add your DB_NAME, DB_USER, DB_PASSWORD and DB_HOST fields_
 
-    ![connected_to_database](./project6_screenshots//connected.JPG)
+    ![connected_to_database](./project6_images//connected.JPG)
 
-    ![wp-config.php](./project6_screenshots//wp-congfig_file.JPG)
+    ![wp-config.php](./project6_images//wp-congfig_file.JPG)
 
-    ![wordpress_page](./project6_screenshots//wordpress_page.JPG)
+    ![wordpress_page](./project6_images//wordpress_page.JPG)
 
-    ![wordpress_page2](./project6_screenshots//wordpress_page2.JPG)
+    ![wordpress_page2](./project6_images//wordpress_page2.JPG)

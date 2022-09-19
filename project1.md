@@ -1,11 +1,11 @@
 # PROJECT 1: LAMP STACK IMPLEMENTATION
 
-![apache installed](./project1_screenshots//apache_installed.JPG)
+![apache installed](./project1_images//apache_installed.JPG)
 
-![apache installed](./project1_screenshots//apache_webpage.JPG)
+![apache installed](./project1_images//apache_webpage.JPG)
 
-![apache installed](./project1_screenshots//php_installed.JPG)
+![apache installed](./project1_images//php_installed.JPG)
 
-![apache installed](./project1_screenshots//create_virtual_host.JPG)
+![apache installed](./project1_images//create_virtual_host.JPG)
 
-![apache installed](./project1_screenshots//php_page.JPG)
+![apache installed](./project1_images//php_page.JPG)

@@ -4,7 +4,7 @@
 
 - `sudo apt install mysql-client`
 
-  ![client_connection](./project5_screenshots//mysql-client.JPG)
+  ![client_connection](./project5_images//mysql-client.JPG)
 
 ---
 
@@ -18,7 +18,7 @@
 
 - `sudo mysql`
 
-  ![server_connection](./project5_screenshots//mysl-server.JPG)
+  ![server_connection](./project5_images//mysl-server.JPG)
 
   ### Create user on the Server machine
 
@@ -36,11 +36,11 @@
 
   - `FLUSH PRIVILEGES`
 
-    ![create_database](./project5_screenshots//database_creation.JPG)
+    ![create_database](./project5_images//database_creation.JPG)
 
-    ![edit_myqsld.cnf](./project5_screenshots//edit_mysqld.cnf_file.JPG)
+    ![edit_myqsld.cnf](./project5_images//edit_mysqld.cnf_file.JPG)
 
-    ![edit_inbound_rules](./project5_screenshots//edit_inbound_rules.JPG)
+    ![edit_inbound_rules](./project5_images//edit_inbound_rules.JPG)
 
   ***
 
@@ -48,4 +48,4 @@
 
 - `sudo mysql -u <username> -h <server_private_ip> -p`
 
-  ![connect_to_server_from_client](./project5_screenshots//connect_to_server_from_client.JPG)
+  ![connect_to_server_from_client](./project5_images//connect_to_server_from_client.JPG)
