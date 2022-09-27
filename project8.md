@@ -123,4 +123,5 @@ You can try to curl your Web Servers from LB locally curl http://Web1 or curl ht
 **_Remember, this is only internal configuration and it is also local to your LB server, these names will neither be ‘resolvable’ from other servers internally nor from the Internet_**
 
 ![complete_setup](./project8_images//project8_final.png)
+
 **_Project 8 Complete Project Architecture Diagram_**
