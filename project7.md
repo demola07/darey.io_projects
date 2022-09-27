@@ -167,7 +167,9 @@ During the next steps we will do following:
 
 ![open_tcp_port](./project7_images//tcp_inbound_rule.JPG)
 
-**_Note 2: If you encounter 403 Error – check permissions to your /var/www/html folder and also disable SELinux sudo setenforce 0_**
+**_Note 2: If you encounter 403 Error – check permissions to your `/var/www/html` folder and also disable SELinux `sudo setenforce 0`_**
+
+\*_To make this change permanent – open following config file `sudo vi /etc/sysconfig/selinux` and set `SELINUX=disabled`then restart `httpd`._
 
 ![selinux_disable](./project7_images//selinux_disable.JPG)
 
