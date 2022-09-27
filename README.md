@@ -13,3 +13,5 @@ A Project repository for Darey.io DevOps Projects
 ### PROJECT 5: [CLIENT-SERVER IMPLEMENTATION using a MYSQL Relatonal Database Management System](https://github.com/demola07/darey.io_projects/blob/main/project5.md)
 
 ### Auxillary Project 1: [Bash Scripting](https://github.com/demola07/darey.io_projects/blob/main/aux_project1.md)
+
+### PROJECT 7: [DEVOPS TOOLING WEBSITE SOLUTION](https://github.com/demola07/darey.io_projects/blob/main/project7.md)
