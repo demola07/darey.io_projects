@@ -146,8 +146,8 @@ Jenkins is a highly extendable application and there are 1400+ plugins available
 
     **_NB: If there is an error in your build referring to permission issues on the NFS server: you can change the permissions of the `/mnt/apps` directory on the NFS server as follows:_**
 
-            sudo chown -R nobody:nobody /mnt/apps
-            sudo chmod -R 777 /mnt/apps
+            sudo chown -R nobody:nobody /mnt
+            sudo chmod -R 777 /mnt
 
     To make sure that the files in /mnt/apps have been udated – connect via SSH/Putty to your NFS server and check README.MD file
 
