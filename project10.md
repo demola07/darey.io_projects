@@ -77,6 +77,8 @@ The most popular ones are: [Godaddy.com](https://www.godaddy.com/en-uk), [Domain
 
     ![reg_domain](./project10_images//reg_domain.JPG)
 
+    ![nameservers](./project10_images//nameservers.JPG)
+
 2.  Assign an Elastic IP to your Nginx LB server and associate your domain name with this Elastic IP
 
     You might have noticed, that every time you restart or stop/start your EC2 instance – you get a new public IP address. When you want to associate your domain name – it is better to have a static IP address that does not change after reboot. Elastic IP is the solution for this problem, learn how to allocate an Elastic IP and associate it with an EC2 server [on this page](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html).
