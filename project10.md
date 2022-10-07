@@ -83,19 +83,19 @@ The most popular ones are: [Godaddy.com](https://www.godaddy.com/en-uk), [Domain
 
 3.  Update [A record](https://www.cloudflare.com/learning/dns/dns-records/dns-a-record/) in your registrar to point to Nginx LB using Elastic IP address
 
+    ![route_53](./project10_images//route_53.JPG)
+
+    ![route_53_1](./project10_images//route_53_1.JPG)
+
     ![A_record_1](./project10_images//A_record_1.JPG)
 
     ![A_record_2](./project10_images//A_record_2.JPG)
 
     Learn how associate your domain name to your Elastic IP [on this page](https://medium.com/progress-on-ios-development/connecting-an-ec2-instance-with-a-godaddy-domain-e74ff190c233).
 
-    ![route_53](./project10_images//route_53.JPG)
-
-    ![route_53_1](./project10_images//route_53_1.JPG)
-
     Check that your Web Servers can be reached from your browser using new domain name using `HTTP` protocol – `http://<your-domain-name.com>`
 
-        ![domain_name_website](./project10_images//domain_name_website.JPG)
+    ![domain_name_website](./project10_images//domain_name_website.JPG)
 
 4.  Configure Nginx to recognize your new domain name
 
