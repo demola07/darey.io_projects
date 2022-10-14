@@ -224,3 +224,7 @@ You can go to each of the servers and check if `wireshark` has been installed by
 ![web_server2_wireshark](./project11_images//web_server2_wireshark.JPG)
 
 ![lb_wireshark](./project11_images//lb_wireshark.JPG)
+
+The updated Ansible architecture now looks like this:
+
+![Updated_architecture_with_ansible](./project11_images//updates_architecture_with_ansible.JPG)
