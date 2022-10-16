@@ -153,4 +153,6 @@ Jenkins is a highly extendable application and there are 1400+ plugins available
 
     `cat /mnt/apps/README.md`
 
+    ![mnt_apps_readme](./project9_images//mnt_apps_readme.JPG)
+
     If you see the changes you had previously made in your GitHub – the job works as expected.
