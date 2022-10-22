@@ -320,3 +320,5 @@ or
 Your Ansible architecture now looks like this:
 
 ![final_architecture](./project12_images//final_architecture.JPG)
+
+### Code containing all configuration can be found in the [ansible-config-mgt](https://github.com/demola07/ansible-config-mgt) repository
