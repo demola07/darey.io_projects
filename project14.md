@@ -70,7 +70,7 @@ Will be making use of AWS virtual machines for this and will require 6 servers f
     [db]
     <DB-Server-Private-IP-Address>
 
-**pentest inventory file**
+**pe  ntest inventory file**
 
     [pentest:children]
     pentest-todo
@@ -81,3 +81,118 @@ Will be making use of AWS virtual machines for this and will require 6 servers f
 
     [pentest-tooling]
     <Pentest-for-Tooling-Private-IP-Address>
+
+ ### ANSIBLE ROLES FOR CI ENVIRONMENT
+ ---
+
+ To automate the setup of `SonarQube` and `JFROG Artifactory`, we can use `ansible-galaxy` to install this configuration into our ansible roles which will be used and run against the `sonarqube server` and `artifactory server`.
+
+We will see this in play later
+
+
+### Configuring Ansible For Jenkins Deployment
+---
+
+1. Navigate to Jenkins URL
+
+2. Install & Open Blue Ocean Jenkins Plugin
+
+3. Create a new pipeline
+
+    ![blue_ocean](./project14_images//blue_ocean.JPG)
+
+4. Select GitHub 
+
+    ![blue_ocean](./project14_images//blue_ocean1.JPG)
+
+5. Connect Jenkins with GitHub
+
+    ![blue_ocean](./project14_images//blue_ocean2.JPG)
+
+6. Login to GitHub & Generate an Access _`settings => Developer Settings => OAuth Apps => Tokens`_
+
+    ![github tokens](./project14_images//github_tokens.JPG)
+
+7. Copy Access Token
+
+    ![github tokens](./project14_images//github_tokens1.JPG)
+
+8. Paste the token and connect
+
+9. Create a new Pipeline
+
+    ![github tokens](./project14_images//jenkins_pipeline.JPG)
+
+
+At this point you may not have a Jenkinsfile in the Ansible repository, so Blue Ocean will attempt to give you some guidance to create one. But we do not need that. We will rather create one ourselves. So, click on Administration to exit the Blue Ocean console.
+
+   ![blue ocean](./project14_images//blue_ocean3.JPG)
+
+Here is our newly created pipeline. It takes the name of your GitHub repository.
+
+   ![jenkins pipeline](./project14_images//jenkins_pipeline1.JPG)
+
+
+### Let us create our Jenkinsfile
+
+Inside the Ansible project, create a new directory `deploy` and start a new file `Jenkinsfile` inside the directory.
+
+
+Add the code snippet below to start building the `Jenkinsfile` gradually. This pipeline currently has just one stage called Build and the only thing we are doing is using the `shell script` module to echo `Building Stage`
+
+![Jenkinsfile](./project14_images//Jenkinsfile.JPG)
+
+Now go back into the Ansible pipeline in Jenkins, and select configure
+
+![ansible_proj](./project14_images//ansible_jen.JPG)
+
+Scroll down to `Build Configuration` section and specify the location of the Jenkinsfile at `deploy/Jenkinsfile`
+
+![ansible_proj](./project14_images//ansible_jen1.JPG)
+
+Back to the pipeline again, this time click "Build now"
+
+![jenkins build](./project14_images//jenkins_build.JPG)
+
+This will trigger a build and you will be able to see the effect of our basic `Jenkinsfile` configuration by going through the console output of the build.
+
+To really appreciate and feel the difference of Cloud Blue UI, it is recommended to try triggering the build again from Blue Ocean interface.
+
+1. Click on Blue Ocean
+
+2. Select your project
+
+3. Click on the button against the branch
+
+![jenkins build](./project14_images//jenkins_build1.JPG)
+
+![jenkins build](./project14_images//jenkins_build2.JPG)
+
+![jenkins build](./project14_images//jenkins_build3.JPG)
+
+Notice that this pipeline is a multibranch one. This means, if there were more than one branch in GitHub, Jenkins would have scanned the repository to discover them all and we would have been able to trigger a build for each branch.
+
+Let us see this in action.
+
+1. Create a new git branch and name it `feature/jenkinspipeline-stages`
+
+2. Currently we only have the Build stage. Let us add another stage called `Test`. Paste the code snippet below and push the new changes to GitHub.
+
+![jenkins branch](./project14_images//jenkins_branch.JPG)
+
+3. To make your new branch show up in Jenkins, we need to tell Jenkins to scan the repository.
+
+    i.  Click on the "Administration" button
+    ![jenkins multibranch](./project14_images//jenkins_multibranch.JPG)
+
+    ii. Navigate to the Ansible project and click on "Scan repository now"
+
+    iii. Refresh the page and both branches will start building automatically. You can go into Blue Ocean and see both branches there too.
+
+    ![jenkins multibranch](./project14_images//jenkins_multibranch1.JPG)
+
+    iv. In Blue Ocean, you can now see how the `Jenkinsfile` has caused a new step in the pipeline launch build for the new branch.
+
+    ![jenkins multibranch](./project14_images//jenkins_multi_blue_ocean.JPG)
+
+    ![jenkins multibranch](./project14_images//jenkins_multi_blue_ocean1.JPG)

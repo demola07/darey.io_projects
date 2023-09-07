@@ -33,9 +33,12 @@ Here is how your updated architecture will look like upon competion of this proj
          sudo apt update
          sudo apt-get install jenkins
 
-    Make sure Jenkins is up and running
 
-    ` sudo systemctl status jenkins`
+You can check the official documentation of [Jenkins](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu)
+
+Make sure Jenkins is up and running
+
+`sudo systemctl status jenkins`
 
 4.  By default Jenkins server uses TCP port 8080 – open it by creating a new Inbound Rule in your EC2 Security Group
 
