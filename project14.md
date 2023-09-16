@@ -196,3 +196,19 @@ Let us see this in action.
     ![jenkins multibranch](./project14_images//jenkins_multi_blue_ocean.JPG)
 
     ![jenkins multibranch](./project14_images//jenkins_multi_blue_ocean1.JPG)
+
+    
+    
+## RUNNING ANSIBLE PLAYBOOK FROM JENKINS
+
+Now that you have a broad overview of a typical Jenkins pipeline. Let us get the actual Ansible deployment to work by:
+
+1. Installing Ansible on Jenkins
+
+2. Installing Ansible plugin in Jenkins UI
+
+3. Creating `Jenkinsfile` from scratch. (Delete all you currently have in there and start all over to get Ansible to run successfully).
+
+    You can watch a [10 minutes video here](https://www.youtube.com/watch?v=PRpEbFZi7nI&feature=youtu.be) to guide you through the entire setup
+
+    **Note:** Ensure that Ansible runs against the Dev environment successfully.
