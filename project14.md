@@ -649,3 +649,7 @@ The data produced by phploc can be ploted onto graphs in Jenkins.
     ![quality gate](./project14_images//sonar_jenkins_config4.JPG)
 
     ![quality gate](./project14_images//sonar_jenkins_config5.JPG)
+
+    ![sonarqube quality gate](./project14_images//sonar_quality_gate.JPG)
+
+    ![sonarqube branch pipeline](./project14_images//sonar_branch_pattern_step.JPG)
