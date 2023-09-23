@@ -686,3 +686,8 @@ First, we will include a When condition to run Quality Gate whenever the running
 ### VIDEO SHOWING PIPELINE RUN:
 
 You can see a [short video here](https://www.loom.com/share/2f4cb8ac89d049ada6efb0ce3a93db31?sid=29d99254-0c89-4dd2-adbf-30f8d2c4668e) on how the pipelines have executed
+
+Attached are the ansible repository and the php repository used in this project
+
+-   [Ansible config repo](https://github.com/demola07/ansible-config-mgt)
+-   [Php-todo repo](https://github.com/demola07/php-todo)
