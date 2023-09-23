@@ -653,3 +653,36 @@ The data produced by phploc can be ploted onto graphs in Jenkins.
     ![sonarqube quality gate](./project14_images//sonar_quality_gate.JPG)
 
     ![sonarqube branch pipeline](./project14_images//sonar_branch_pattern_step.JPG)
+
+## End-to-End Pipeline Overview
+
+Conditionally deploy to higher environments In the real world, developers will work on feature branch in a repository (e.g., GitHub or GitLab). There are other branches that will be used differently to control how software releases are done. You will see such branches as:
+
+Develop Master or Main (The * is a place holder for a version number, Jira Ticket name or some description. It can be something like Release-1.0.0) `Feature/* Release/* Hotfix/*` etc.
+
+There is a very wide discussion around release strategy, and git branching strategies which in recent years are considered under what is known as GitFlow (Have a read and keep as a bookmark – it is a possible candidate for an interview discussion, so take it seriously!)
+
+Assuming a basic gitflow implementation restricts only the develop branch to deploy code to Integration environment like sit.
+
+Let us update our Jenkinsfile to implement this:
+
+First, we will include a When condition to run Quality Gate whenever the running branch is either develop, hotfix, release, main, or master
+
+    stage('SonarQube Quality Gate') {
+      when { branch pattern: "^develop*|^hotfix*|^release*|^main*", comparator: "REGEXP"}
+        environment {
+            scannerHome = tool 'SonarQubeScanner'
+        }
+        steps {
+            withSonarQubeEnv('sonarqube') {
+                sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
+            }
+            timeout(time: 1, unit: 'MINUTES') {
+                waitForQualityGate abortPipeline: true
+            }
+        }
+    }
+
+### VIDEO SHOWING PIPELINE RUN:
+
+You can see a [short video here](https://www.loom.com/share/2f4cb8ac89d049ada6efb0ce3a93db31?sid=29d99254-0c89-4dd2-adbf-30f8d2c4668e) on how the pipelines have executed
