@@ -12,13 +12,13 @@ In this project, we will build a secure infrastructure inside AWS [VPC (Virtual 
 There are few requirements that must be met before you begin:
 
 1. Properly configure your AWS account and Organization Unit [Watch How To Do This Here](https://www.youtube.com/watch?v=9PQYCc_20-Q&feature=youtu.be)
-  - Create an [AWS Master account](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all). (Also known as Root Account)
- - Within the Root account, create a sub-account and name it DevOps. (You will need another email address to complete this)
- - Within the Root account, create an AWS Organization Unit (OU). Name it Dev. (We will launch Dev resources in there)
- - Move the DevOps account into the Dev OU.
- - Login to the newly created AWS account using the new email address.
+    - Create an [AWS Master account](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all). (Also known as Root Account)
+    - Within the Root account, create a sub-account and name it DevOps. (You will need another email address to complete this)
+    - Within the Root account, create an AWS Organization Unit (OU). Name it Dev. (We will launch Dev resources in there)
+    - Move the DevOps account into the Dev OU.
+    - Login to the newly created AWS account using the new email address.
 
-    ![aws_org](./project15_images//aws_organisation.PNG)
+      ![aws_org](./project15_images//aws_organisation.PNG)
 
 2. Create a free domain name for your fictitious company at Freenom domain registrar [here](https://www.freenom.com/en/index.html?lang=en).
 
