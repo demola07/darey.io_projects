@@ -24,6 +24,8 @@ There are few requirements that must be met before you begin:
 
 3. Create a hosted zone in AWS, and map it to your free domain from Freenom. [Watch how to do that here](https://www.youtube.com/watch?v=IjcHp94Hq8A)
 
+    ![aws_hosted_zone](./project15_images//aws_hosted_zone.PNG)
+
     **NOTE : As you proceed with configuration, ensure that all resources are appropriately tagged, for example:**
 
     - Project: Give your project a name
